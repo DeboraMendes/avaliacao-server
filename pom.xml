@@ -6,6 +6,7 @@
 	<groupId>br.com.viasoft</groupId>
 	<artifactId>avaliacao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>avaliacao</name>
 	<description> Nimitz startup demo project</description>
 
@@ -35,11 +36,31 @@
 			<version>2.1.6.RELEASE</version>
 		</dependency>
 		<!--
+		identifica quando o código sofreu alterações e reinicia o servidor automaticamente
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>2.1.6.RELEASE</version>
+		</dependency>
+		<!--
 		é necessário para configuração do banco de dados, configura todas as dependências com Hibernate e JPA
+		possui por exemplo:
+		a interface CrudRepository que podemos utilizar para o crud normalzinho e para criar diversos métodos de pesquisa
 		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>2.1.6.RELEASE</version>
+		</dependency>
+		<!--
+		fornece vários endpoints onde podemos verificar algumas informações em tempo de execução da aplicação
+		ou seja, uma pós implantação,
+		por exemplo, ver a saúde da aplicação usando o /health.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 			<version>2.1.6.RELEASE</version>
 		</dependency>
 		<!--
@@ -53,7 +74,7 @@
 		</dependency>
 		<!--
 		é necessário para por exemplo:
-		- conseguirmos utilizar a anotação @Data que seria um atalho para @ToString, @EqualsAndHashCode, @Getter, @Setters e @RequiredArgsConstructor
+		* conseguirmos utilizar a anotação @Data que seria um atalho para @ToString, @EqualsAndHashCode, @Getter, @Setters e @RequiredArgsConstructor
 		-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -63,5 +84,26 @@
 		</dependency>
 
 	</dependencies>
+
+	<!--
+	plugin e a regra de como o build será realizado ao empacotar a aplicação
+	é necessário ppara que no momento de executar o jar a classe principal o main, seja localizado
+	-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.1.6.RELEASE</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

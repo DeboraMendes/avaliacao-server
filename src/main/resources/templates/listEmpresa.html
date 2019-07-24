@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Lista de Empresas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="../fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link href="../fontawesome/css/all.css" rel="stylesheet"/>
     <link href="../static/css/myStyle.css" rel="stylesheet" />
 </head>
 <body>
@@ -21,19 +21,17 @@
         <table id="dados" class="table table-striped table-bordered display">
             <thead>
             <tr>
-                <th class="col-md-1">Código</th>
-                <th class="col-md-4">Nome Fantasia</th>
-                <th class="col-md-5">Razão Social</th>
-                <th class="col-md-1">Editar</th>
-                <th class="col-md-1">Deletar</th>
+                <th>Nome Fantasia</th>
+                <th>Razão Social</th>
+                <th>Editar</th>
+                <th>Deletar</th>
             </tr>
             </thead>
             <tbody>
                 <tr th:each="empresa : ${empresas}">
                     <tr id="row_${empresa.id}">
-                        <td>${empresa.id}</td>
-                        <td>${empresa.nomeFantasia}</td>
-                        <td>${empresa.razaoSocial}</td>
+                        <td> <span th:text="${empresa.nomeFantasia}"></span> </td>
+                        <td> <span th:text="${empresa.razaoSocial}"></span> </td>
                         <td>
                             <div class="centralizar">
                                 <a class="edit btn btn-primary " title="Editar"
