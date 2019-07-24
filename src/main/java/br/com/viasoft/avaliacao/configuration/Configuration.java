@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 public class Configuration {
 
     //a anotação @Bean define que o método seja gerenciado pelo Spring
-    //este método é responsável por criar o DataSource de conexão ao banco de dados
+    //este método é responsável por criar/retornar o DataSource de conexão ao banco de dados
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
