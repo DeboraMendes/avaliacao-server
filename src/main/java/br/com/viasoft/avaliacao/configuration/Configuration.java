@@ -1,19 +1,24 @@
 package br.com.viasoft.avaliacao.configuration;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-//Classe de configuraçã do Spring Boot
+import javax.sql.DataSource;
+
+//a anotação SpringBootApplication define que esta é uma classe de configuraçã do Spring Boot
 @SpringBootApplication
-@Controller
 public class Configuration {
 
-    //Anotações do spring mvc
-    @RequestMapping("/")
-    @ResponseBody
-    String ola(){
-        return "Olá, bem vindo ao meu projeto de avaliação :)";
+    //a anotação @Bean define que o método seja gerenciado pelo Spring
+    //este método é responsável por criar o DataSource de conexão ao banco de dados
+    @Bean
+    public DataSource dataSource(){
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/avaliacao");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
+        return dataSource;
     }
 }
