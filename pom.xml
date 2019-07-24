@@ -87,7 +87,8 @@
 
 	<!--
 	plugin e a regra de como o build será realizado ao empacotar a aplicação
-	é necessário ppara que no momento de executar o jar a classe principal o main, seja localizado
+	é necessário para gerar um Fatjar que é a aplicação completa empacotada em um único arquivo .jar
+	sem esse pluguin é gerado o jar normalmente, porém no momento de executar o jar a classe principal, o main, não é localizada
 	-->
 	<build>
 		<plugins>
