@@ -26,7 +26,7 @@ public class EmpresaController extends CrudController<Empresa, Long> {
 
     @GetMapping(value = {"/", ""})
     public @ResponseBody String teste() {
-        System.out.println("teste");
+        System.out.println("testando");
         return "teste";
     }
 
