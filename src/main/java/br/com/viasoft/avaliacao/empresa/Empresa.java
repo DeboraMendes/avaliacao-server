@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.model;
+package br.com.viasoft.avaliacao.empresa;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,12 +21,12 @@ public class Empresa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "NOME_FANTASIA")
     private String nomeFantasia;
 
-    @Column
+    @Column(name = "RAZAO_SOCIAL")
     private String razaoSocial;
 
-    @Column
+    @Column(name = "CAMINHO_FOTO")
     private String caminhoFoto;
 }

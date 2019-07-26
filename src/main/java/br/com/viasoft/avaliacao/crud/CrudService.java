@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.service;
+package br.com.viasoft.avaliacao.crud;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

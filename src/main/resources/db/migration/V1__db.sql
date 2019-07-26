@@ -1,43 +1,41 @@
 CREATE TABLE empresa
 (
-	id LONG,
-	nomeFantasia VARCHAR(800),
-	razaoSocial VARCHAR(800),
-	caminhoFoto VARCHAR(800)
+	ID LONG,
+	NOME_FANTASIA VARCHAR(800),
+	RAZAO_SOCIAL VARCHAR(800),
+	CAMINHO_FOTO VARCHAR(800)
 );
 
 CREATE TABLE linha
 (
-	id LONG,
-    idEmpresa LONG,
-	descricao VARCHAR(800)
+	ID LONG,
+    ID_EMPRESA LONG,
+	DESCRICAO VARCHAR(800)
 );
 
-CREATE TABLE linhaPonto
+CREATE TABLE linha_ponto
 (
-	id LONG,
-    idLinha LONG,
-	idPonto LONG
+	ID LONG,
+    ID_LINHA LONG,
+	ID_PONTO LONG
 );
 
 CREATE TABLE ponto
 (
-	id LONG,
-	latitude DECIMAL,
-	longitude DECIMAL,
-	nome VARCHAR(800),
-    descricao VARCHAR(800),
-    parada BOOLEAN,
-    referencia BOOLEAN,
-    caminhoFoto VARCHAR(800)
+	ID LONG,
+	LATITUDE DECIMAL,
+	LONGITUDE DECIMAL,
+	NOME VARCHAR(800),
+    DESCRICAO VARCHAR(800),
+    PARADA BOOLEAN,
+    REFERENCIA BOOLEAN,
+    CAMINHO_FOTO VARCHAR(800)
 );
 
 CREATE TABLE usuario
 (
-	id LONG,
-	nome VARCHAR(800),
-    email VARCHAR(800),
-    senha VARCHAR(800),
-    referencia BOOLEAN,
-    caminhoFoto VARCHAR(800)
+	ID LONG,
+	NOME VARCHAR(800),
+    EMAIL VARCHAR(800),
+    SENHA VARCHAR(800)
 );

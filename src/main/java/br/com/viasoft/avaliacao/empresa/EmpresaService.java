@@ -1,6 +1,6 @@
-package br.com.viasoft.avaliacao.service;
+package br.com.viasoft.avaliacao.empresa;
 
-import br.com.viasoft.avaliacao.model.Empresa;
+import br.com.viasoft.avaliacao.crud.CrudService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

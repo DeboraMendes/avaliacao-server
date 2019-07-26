@@ -1,8 +1,7 @@
-package br.com.viasoft.avaliacao.controller;
+package br.com.viasoft.avaliacao.empresa;
 
-import br.com.viasoft.avaliacao.model.Empresa;
-import br.com.viasoft.avaliacao.service.CrudService;
-import br.com.viasoft.avaliacao.service.EmpresaService;
+import br.com.viasoft.avaliacao.crud.CrudController;
+import br.com.viasoft.avaliacao.crud.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("empresa")
+@RequestMapping("/empresa")
 public class EmpresaController extends CrudController<Empresa, Long> {
 
     @Autowired
@@ -24,10 +23,10 @@ public class EmpresaController extends CrudController<Empresa, Long> {
         return empresaService;
     }
 
-    @GetMapping(value = {"/", ""})
+    @GetMapping("/teste")
     public @ResponseBody String teste() {
-        System.out.println("testando");
-        return "teste";
+        System.out.println("teste executado");
+        return "deu sucesso! =D";
     }
 
     @GetMapping("filter/nomeFantasia")

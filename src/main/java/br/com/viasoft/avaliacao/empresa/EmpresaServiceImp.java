@@ -1,8 +1,6 @@
-package br.com.viasoft.avaliacao.service.impl;
+package br.com.viasoft.avaliacao.empresa;
 
-import br.com.viasoft.avaliacao.model.Empresa;
-import br.com.viasoft.avaliacao.repository.EmpresaRepository;
-import br.com.viasoft.avaliacao.service.EmpresaService;
+import br.com.viasoft.avaliacao.crud.CrudServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
