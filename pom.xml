@@ -6,7 +6,7 @@
 	<groupId>br.com.viasoft</groupId>
 	<artifactId>avaliacao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>avaliacao</name>
 	<description> Nimitz startup demo project</description>
 
@@ -19,7 +19,7 @@
 		<!--
 		é necessário para simplismente rodar a aplicação, pois possui por exemplo:
 		* o container padrão Tomcat na porta 8080
-		* disponibiliza o Spring MVC
+		* disponibiliza o Spring MVC: Para que todas as requisições que chegarem na aplicação sejam recebidas e tratadas pelo Spring MVC, que é um Framework Java que ajuda no desenvolvimento de aplicações Web.
 		* a anotação @SpringBootApplication
 		-->
 		<dependency>
@@ -90,17 +90,45 @@
 			<version>1.18.8</version>
 			<scope>provided</scope>
 		</dependency>
+		<!--
+		é encessário para migração de banco de dados
+		-->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>5.2.4</version>
+		</dependency>
 
 	</dependencies>
 
-	<!--
-	plugin e a regra de como o build será realizado ao empacotar a aplicação
-	é necessário para gerar um Fatjar que é a aplicação completa empacotada em um único arquivo .jar
-	assim já sobe toda nossa aplicação diretamente da linha de comando
-	sem esse pluguin é gerado o jar normalmente, porém no momento de executar o jar a classe principal, o main, não é localizada
-	-->
 	<build>
 		<plugins>
+			<!--
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.2.4</version>
+				<configuration>
+					<driver>com.mysql.cj.jdbc.Driver</driver>
+					<url>jdbc:mysql://127.0.0.1:3306/avaliacao</url>
+					<user>root</user>
+					<password>root</password>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>8.0.17</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			-->
+			<!--
+			plugin e a regra de como o build será realizado ao empacotar a aplicação
+			é necessário para gerar um Fatjar que é a aplicação completa empacotada em um único arquivo .jar
+			assim já sobe toda nossa aplicação diretamente da linha de comando
+			sem esse pluguin é gerado o jar normalmente, porém no momento de executar o jar a classe principal, o main, não é localizada
+			-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -112,6 +140,14 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

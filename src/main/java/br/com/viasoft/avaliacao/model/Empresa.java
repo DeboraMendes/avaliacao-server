@@ -1,50 +1,32 @@
 package br.com.viasoft.avaliacao.model;
 
-//import br.com.caelum.vraptor.serialization.SkipSerialization;
-//import com.google.gson.annotations.Expose;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+//@Entity é uma anotação do JPA. É utilizada para fazer o mapeamento entre entre dados e objetos, ou seja, utilizada para informar que uma classe também é uma entidade.
 @Entity
+//@Table é uma anotação do JPA. Permite que você especifique os detalhes da tabela que será usada para persistir a entidade no banco de dados. Nesse caso, está sendo especificado somente o nome da tabela
 @Table(name = "empresa")
+//@NoArgsConstructor é uma anotação do Lombok. Irá gerar um construtor sem parâmetros.
+@NoArgsConstructor
+//@Data é uma anotação do Lombok. É atalho para @ToString, @EqualsAndHashCode, @Getters,  @Setters e @RequiredArgsConstructor
 @Data
+//Serializable é uma Interface do Java. Serializar um objeto significa transformá-lo em um stream de bytes que pode ser gravado ou transmitido. Usa-se serialização quando se quer gravar objetos em arquivos ou transmiti-los pela rede por exemplo.
 public class Empresa implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    public static final String findAll = "Empresa.findAll";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 80, nullable = false)
+    @Column
     private String nomeFantasia;
 
-    @Column(length = 80, nullable = false)
+    @Column
     private String razaoSocial;
-//
-//    @SkipSerialization
-//    @Expose(serialize = false)
-    @Column(nullable = true)
+
+    @Column
     private String caminhoFoto;
-    
-    public Empresa() {
-        super();
-    }
-
-    public Empresa(String nomeFantasia, String razaoSocial) {
-        super();
-        this.nomeFantasia = nomeFantasia;
-        this.razaoSocial = razaoSocial;
-    }
-    
-    public Empresa(String nomeFantasia, String razaoSocial, String caminhoFoto) {
-        super();
-        this.nomeFantasia = nomeFantasia;
-        this.razaoSocial = razaoSocial;
-        this.caminhoFoto = caminhoFoto;
-    }
-
 }

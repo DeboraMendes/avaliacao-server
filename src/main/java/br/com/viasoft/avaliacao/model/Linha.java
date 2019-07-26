@@ -8,30 +8,30 @@ import java.io.Serializable;
 @Entity
 @Table(name = "linha")
 @Data
-public class Linha implements Serializable{
-	private static final long serialVersionUID = 1L;
-	public static final String findAll = "Linha.findAll";
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idEmpresa", referencedColumnName="id")
-	private Empresa empresa;
-        
-        @Column(length = 80, nullable = false)
-	private String descricao;
-        
-	public Linha() {
-		super();
-	}
+public class Linha implements Serializable {
+    private static final long serialVersionUID = 1L;
+    public static final String findAll = "Linha.findAll";
 
-	public Linha(Empresa empresa, String descricao) {
-		super();
-		this.empresa = empresa;
-		this.descricao = descricao;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idEmpresa", referencedColumnName = "id")
+    private Empresa empresa;
+
+    @Column
+    private String descricao;
+
+    public Linha() {
+        super();
+    }
+
+    public Linha(Empresa empresa, String descricao) {
+        super();
+        this.empresa = empresa;
+        this.descricao = descricao;
+    }
 
 }
 

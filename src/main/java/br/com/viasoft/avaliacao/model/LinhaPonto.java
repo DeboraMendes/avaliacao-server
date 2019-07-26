@@ -41,12 +41,12 @@ public class LinhaPonto implements Serializable {
 //        this.horario = horario;
 //
 //    }
-    
+
     public LinhaPonto(Linha linha, Ponto ponto) {
         super();
         this.linha = linha;
         this.ponto = ponto;
-        
+
     }
 //
 //    public LocalTime getLocalTimeHorario(String horario) {

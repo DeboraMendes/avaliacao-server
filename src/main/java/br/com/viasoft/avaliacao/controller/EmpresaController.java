@@ -1,122 +1,52 @@
 package br.com.viasoft.avaliacao.controller;
 
-//import br.com.caelum.vraptor.*;
-//import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.viasoft.avaliacao.model.Empresa;
-import br.com.viasoft.avaliacao.repository.EmpresaRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-//import org.apache.commons.io.IOUtils;
+import br.com.viasoft.avaliacao.service.CrudService;
+import br.com.viasoft.avaliacao.service.EmpresaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*;
 
-//import javax.inject.Inject;
-import javax.servlet.ServletContext;
-import java.io.File;
-import java.io.FileOutputStream;
+import javax.validation.Valid;
 
-//import static br.com.caelum.vraptor.view.Results.json;
-//import static br.com.caelum.vraptor.view.Results.status;
+@RestController
+@RequestMapping("empresa")
+public class EmpresaController extends CrudController<Empresa, Long> {
 
-@Controller
-@RequestMapping("/empresa")
-public class EmpresaController {
+    @Autowired
+    private EmpresaService empresaService;
 
-//    private Result result;
-    private EmpresaRepository empresaRepository;
-//
-//    public EmpresaController() {
-//    }
-//
-//    @Inject
-//    public EmpresaController(Result result, EmpresaRepository empresaRepository) {
-//        this.result = result;
-//        this.empresaRepository = empresaRepository;
-//    }
-//
-    @GetMapping(value = {"/", ""})
-    public @ResponseBody String listEmpresa(Model model) {
-        Iterable<Empresa> empresas = empresaRepository.findAll();
-        model.addAttribute("empresas", empresas);
-        return "empresas";
+    @Valid
+    @Override
+    protected CrudService<Empresa, Long> getService() {
+        return empresaService;
     }
-//
-//    @Get
-//    @Path(value = "/form")
-//    public void form() {
-//        result.include("empresa", new Empresa());
-//    }
-//
-//    @Get
-//    @Path(value = "/form/{id}")
-//    public void form(Long id) {
-//        result.include("empresa", empresaRepository.findById(id));
-//    }
-//
-//    @Post
-//    @Path(value = "/")
-//    public void salvar(Empresa empresa,
-//            UploadedFile foto,
-//            ServletContext context) {
-//        try {
-//            if (empresa.getId() != null && empresa.getId() > 0) {
-//                empresaRepository.update(empresa);
-//            } else {
-//                empresaRepository.insert(empresa);
-//            }
-//            if (foto != null) {
-//                salvarImagem(foto, context,
-//                        empresa.getId());
-//            }
-//            result.use(status()).ok();
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            result.use(status())
-//                    .badRequest("ERRO");
-//        }
-//    }
-//
-//    @Delete
-//    @Path(value = "/{id}")
-//    public void remover(Long id) {
-//        empresaRepository.delete(id);
-//        result.use(status()).ok();
-//    }
-//
-//    private void salvarImagem(UploadedFile foto, ServletContext context, Long id) {
-//        try {
-//            String caminho = "C:\\Users\\Debora\\Downloads\\img\\empresa";
-//            File dir = new File(caminho);
-//            if (!dir.exists()) {
-//                dir.mkdirs();
-//            }
-//            String extensao = foto.getFileName()
-//                    .substring(
-//                            foto.getFileName().lastIndexOf("."),
-//                            foto.getFileName().length());
-//            File destino = new File(caminho + "\\" + id + extensao);
-//            try (FileOutputStream fos = new FileOutputStream(destino)) {
-//                IOUtils.copy(foto.getFile(), fos);
-//            }
-//            Empresa empresa = empresaRepository.findById(id);
-//            empresa.setCaminhoFoto(String.valueOf(destino));
-//            empresaRepository.update(empresa);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    @Get
-//    @Path(value = "/json")
-//    public void listJson() {
-//        result.use(json()).withoutRoot().from(empresaRepository.findAll()).serialize();
-//    }
-//
-//    @Get
-//    @Path(value = "/img/{id}")
-//    public File listImg(Long id){
-//        Empresa empresa = empresaRepository.findById(id);
-//        return new File(empresa.getCaminhoFoto());
-//    }
+
+    @GetMapping(value = {"/", ""})
+    public @ResponseBody String teste() {
+        System.out.println("teste");
+        return "teste";
+    }
+
+    @GetMapping("filter/nomeFantasia")
+    public Page<Empresa> findByNomeFantasiaLike(
+            @RequestParam String filter,
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam(required = false) String order,
+            @RequestParam(required = false) Boolean asc) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        if (order != null && asc != null) {
+            PageRequest.of(page, size, asc ? Sort.Direction.ASC : Sort.Direction.DESC, order);
+        }
+        return empresaService.findByNomeFantasiaLike("%" + filter + "%", pageRequest);
+    }
+
+    @GetMapping("search/count")
+    public long findByNomeFantasiaLike(@RequestParam String filter) {
+        return empresaService.countByNomeFantasiaLike("%" + filter + "%");
+    }
+
 }

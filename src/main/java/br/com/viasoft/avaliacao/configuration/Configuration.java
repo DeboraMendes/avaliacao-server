@@ -13,10 +13,10 @@ public class Configuration {
     //a anotação @Bean define que o método seja gerenciado pelo Spring
     //este método é responsável por criar/retornar o DataSource de conexão ao banco de dados
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/avaliacao");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/avaliacao");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;

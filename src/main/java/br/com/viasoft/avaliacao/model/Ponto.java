@@ -1,6 +1,7 @@
 package br.com.viasoft.avaliacao.model;
 
 //import br.com.caelum.vraptor.serialization.SkipSerialization;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,26 +19,26 @@ public class Ponto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private Double latitude;
 
-    @Column(nullable = false)
+    @Column
     private Double longitude;
 
-    @Column(length = 80, nullable = false)
+    @Column
     private String nome;
 
-    @Column(length = 500, nullable = false)
+    @Column
     private String descricao;
-    
-    @Column(nullable = true)
+
+    @Column
     private Boolean parada;
-    
-    @Column(nullable = true)
+
+    @Column
     private Boolean referencia;
-    
-//    @SkipSerialization
-    @Column(nullable = true)
+
+    //    @SkipSerialization
+    @Column
     private String caminhoFoto;
 
     public Ponto() {
@@ -53,7 +54,7 @@ public class Ponto implements Serializable {
         this.parada = parada;
         this.referencia = referencia;
     }
-    
+
     public Ponto(Double latitude, Double longitude, String nome, String descricao, Boolean parada, Boolean referencia, String caminhoFoto) {
         super();
         this.latitude = latitude;
@@ -62,7 +63,7 @@ public class Ponto implements Serializable {
         this.descricao = descricao;
         this.parada = parada;
         this.referencia = referencia;
-        this. caminhoFoto = caminhoFoto;
+        this.caminhoFoto = caminhoFoto;
     }
 
 }

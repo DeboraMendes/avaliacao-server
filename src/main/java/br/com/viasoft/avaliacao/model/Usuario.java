@@ -1,6 +1,7 @@
 package br.com.viasoft.avaliacao.model;
 
 //import br.com.caelum.vraptor.serialization.SkipSerialization;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,11 +9,11 @@ import java.io.Serializable;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findByEmailSenha",
-            query = "SELECT u "
-                    + "FROM Usuario u "
-                    + "WHERE u.email=:email AND "
-                    + "u.senha=:senha")
+        @NamedQuery(name = "Usuario.findByEmailSenha",
+                query = "SELECT u "
+                        + "FROM Usuario u "
+                        + "WHERE u.email=:email AND "
+                        + "u.senha=:senha")
 })
 
 @Data
@@ -25,14 +26,14 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, nullable = false)
+    @Column
     private String nome;
 
-    @Column(length = 100, nullable = false)
+    @Column
     private String email;
 
-//    @SkipSerialization
-    @Column(length = 100, nullable = false)
+    //    @SkipSerialization
+    @Column
     private String senha;
 
     public Usuario() {
