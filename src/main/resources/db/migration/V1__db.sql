@@ -40,3 +40,12 @@ CREATE TABLE usuario
     SENHA VARCHAR(800),
     TELEFONE VARCHAR(11)
 );
+
+
+CREATE TABLE historico_do_proco_da_passagem
+(
+	ID LONG,
+	PRECO DOUBLE,
+    DATA_DA_ALTERACAO DATE,
+    ID_USUARIO LONG
+);

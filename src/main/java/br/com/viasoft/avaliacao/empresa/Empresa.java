@@ -1,10 +1,13 @@
 package br.com.viasoft.avaliacao.empresa;
 
+import br.com.viasoft.avaliacao.historicoDoProcoDaPassagem.HistoricoDoProcoDaPassagem;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 //@Entity é uma anotação do JPA. É utilizada para fazer o mapeamento entre entre dados e objetos, ou seja, utilizada para informar que uma classe também é uma entidade.
 @Entity
@@ -29,4 +32,7 @@ public class Empresa implements Serializable {
 
     @Column(name = "CAMINHO_FOTO")
     private String caminhoFoto;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<HistoricoDoProcoDaPassagem> historicoDoProcoDaPassagem;
 }
