@@ -98,16 +98,39 @@
 			<artifactId>flyway-core</artifactId>
 			<version>5.2.4</version>
 		</dependency>
+<!--		mander e-mail -->
 		<dependency>
 			<groupId>com.icegreen</groupId>
 			<artifactId>greenmail</artifactId>
 			<version>1.5.5</version>
 			<scope>test</scope>
 		</dependency>
+<!--		recuperar senha-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.1.6.RELEASE</version>
+		</dependency>
+<!--		framework que contém uma coleção de pequenos métodos que nos auxiliam muito na escrita de testes mais legiveis -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+<!--		fazer testes -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+<!--	framework mockito. Objetos que simulam os comportamentos dos objetos reais é o que chamamos de mock objects ou objetos dublês. Eles são especialmente úteis em testes em que temos objetos que se integram com outros sistemas.	-->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

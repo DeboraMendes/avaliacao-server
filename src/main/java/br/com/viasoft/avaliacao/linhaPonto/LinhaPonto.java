@@ -28,6 +28,7 @@ public class LinhaPonto implements Serializable {
 
 //    @Column(nullable = true)
 //    private LocalTime horario;
+    
 //
 //    public LocalTime getLocalTimeHorario(String horario) {
 //        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
