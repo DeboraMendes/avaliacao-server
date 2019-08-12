@@ -4,6 +4,7 @@ package br.com.viasoft.avaliacao.usuario;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -16,6 +17,7 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(name = "NOME")
+    @NotNull
     private String nome;
 
     @Column(name = "EMAIL")

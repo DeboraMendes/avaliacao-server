@@ -106,11 +106,13 @@
 			<scope>test</scope>
 		</dependency>
 <!--		recuperar senha-->
+<!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.1.6.RELEASE</version>
 		</dependency>
+-->
 <!--		framework que contém uma coleção de pequenos métodos que nos auxiliam muito na escrita de testes mais legiveis -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

@@ -5,6 +5,7 @@ import br.com.viasoft.avaliacao.ponto.Ponto;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 //import java.time.LocalTime;
 //import java.time.format.DateTimeFormatter;
@@ -20,15 +21,16 @@ public class LinhaPonto implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_LINHA", referencedColumnName = "ID")
+    @NotNull
     private Linha linha;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_PONTO", referencedColumnName = "ID")
+    @NotNull
     private Ponto ponto;
 
 //    @Column(nullable = true)
 //    private LocalTime horario;
-
 //
 //    public LocalTime getLocalTimeHorario(String horario) {
 //        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");

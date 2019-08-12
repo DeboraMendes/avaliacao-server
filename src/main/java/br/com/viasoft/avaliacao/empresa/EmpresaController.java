@@ -23,12 +23,6 @@ public class EmpresaController extends CrudController<Empresa, Long> {
         return empresaService;
     }
 
-    @GetMapping("/teste")
-    public @ResponseBody String teste() {
-        System.out.println("teste executado");
-        return "deu sucesso! =D";
-    }
-
     @GetMapping("filter/nomeFantasia")
     public Page<Empresa> findByNomeFantasiaLike(
             @RequestParam String filter,

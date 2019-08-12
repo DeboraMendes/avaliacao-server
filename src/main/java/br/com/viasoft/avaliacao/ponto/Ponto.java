@@ -2,9 +2,11 @@ package br.com.viasoft.avaliacao.ponto;
 
 //import br.com.caelum.vraptor.serialization.SkipSerialization;
 
+import br.com.viasoft.avaliacao.tipoPonto.TipoPonto;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -17,22 +19,25 @@ public class Ponto implements Serializable {
     private Long id;
 
     @Column(name = "LATITUDE")
+    @NotNull
     private Double latitude;
 
     @Column(name = "LONGITUDE")
+    @NotNull
     private Double longitude;
 
     @Column(name = "NOME")
+    @NotNull
     private String nome;
 
     @Column(name = "DESCRICAO")
+    @NotNull
     private String descricao;
 
-    @Column(name = "PARADA")
-    private Boolean parada;
-
-    @Column(name = "REFERENCIA")
-    private Boolean referencia;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_TIPO_PONTO", referencedColumnName = "ID")
+    @NotNull
+    private TipoPonto tipoPonto;;
 
     //    @SkipSerialization
     @Column(name = "CAMINHO_FOTO")

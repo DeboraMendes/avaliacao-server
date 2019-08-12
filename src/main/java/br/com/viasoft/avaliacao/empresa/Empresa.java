@@ -25,14 +25,16 @@ public class Empresa implements Serializable {
     private Long id;
 
     @Column(name = "NOME_FANTASIA")
+    @NotNull
     private String nomeFantasia;
 
     @Column(name = "RAZAO_SOCIAL")
+    @NotNull
     private String razaoSocial;
 
     @Column(name = "CAMINHO_FOTO")
     private String caminhoFoto;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
     private List<HistoricoDoProcoDaPassagem> historicoDoProcoDaPassagem;
 }

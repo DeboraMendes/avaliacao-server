@@ -4,6 +4,7 @@ import br.com.viasoft.avaliacao.empresa.Empresa;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -16,10 +17,12 @@ public class Linha implements Serializable {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
     @JoinColumn(name = "ID_EMPRESA", referencedColumnName = "ID")
     private Empresa empresa;
 
     @Column(name = "DESCRICAO")
+    @NotNull
     private String descricao;
 
 }
