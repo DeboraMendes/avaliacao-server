@@ -98,21 +98,6 @@
 			<artifactId>flyway-core</artifactId>
 			<version>5.2.4</version>
 		</dependency>
-<!--		mander e-mail -->
-		<dependency>
-			<groupId>com.icegreen</groupId>
-			<artifactId>greenmail</artifactId>
-			<version>1.5.5</version>
-			<scope>test</scope>
-		</dependency>
-<!--		recuperar senha-->
-<!--
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>2.1.6.RELEASE</version>
-		</dependency>
--->
 <!--		framework que contém uma coleção de pequenos métodos que nos auxiliam muito na escrita de testes mais legiveis -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

@@ -1,5 +1,6 @@
 package br.com.viasoft.avaliacao.empresa;
 
+import br.com.viasoft.avaliacao.endereco.Endereco;
 import br.com.viasoft.avaliacao.historicoDoProcoDaPassagem.HistoricoDoProcoDaPassagem;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,16 @@ public class Empresa implements Serializable {
     @Column(name = "RAZAO_SOCIAL")
     @NotNull
     private String razaoSocial;
+
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "TELEFONE")
+    private String telefone;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy="empresa")
+    @PrimaryKeyJoinColumn
+    private Endereco endereco;
 
     @Column(name = "CAMINHO_FOTO")
     private String caminhoFoto;

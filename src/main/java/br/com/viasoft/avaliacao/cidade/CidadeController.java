@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.usuario;
+package br.com.viasoft.avaliacao.cidade;
 
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/usuario")
-public class UsuarioController extends CrudController<Usuario, Long> {
+@RequestMapping("/cidade")
+public class CidadeController extends CrudController<Cidade, Long> {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private CidadeService cidadeService;
 
     @Valid
     @Override
-    protected CrudService<Usuario, Long> getService() {
-        return usuarioService;
+    protected CrudService<Cidade, Long> getService() {
+        return cidadeService;
     }
 
 }

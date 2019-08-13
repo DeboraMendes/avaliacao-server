@@ -1,7 +1,6 @@
 package br.com.viasoft.avaliacao.historicoDoProcoDaPassagem;
 
 import br.com.viasoft.avaliacao.empresa.Empresa;
-import br.com.viasoft.avaliacao.usuario.Usuario;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,10 +25,6 @@ public class HistoricoDoProcoDaPassagem implements Serializable {
 
     @Column(name = "DATA_DA_ALTERACAO")
     private LocalDate data;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
-    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "ID_EMPRESA")
