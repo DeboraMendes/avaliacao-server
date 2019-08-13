@@ -22,7 +22,7 @@ public class Cidade implements Serializable {
     @NotNull
     private String nome;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_ESTADO", referencedColumnName = "id")
     @NotNull
     private Estado estado;

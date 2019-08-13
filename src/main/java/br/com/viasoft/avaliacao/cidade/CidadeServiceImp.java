@@ -17,5 +17,4 @@ public class CidadeServiceImp extends CrudServiceImpl<Cidade, Long> implements C
 
         return cidadeRepository;
     }
-
 }
