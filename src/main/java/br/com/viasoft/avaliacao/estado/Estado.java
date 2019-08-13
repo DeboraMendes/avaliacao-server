@@ -17,7 +17,15 @@ public class Estado implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "CODIGO_IBGE")
+    @NotNull
+    private Integer codigoIbge;
+
     @Column(name = "NOME")
     @NotNull
     private String nome;
+
+    @Column(name = "SIGLA")
+    @NotNull
+    private String sigla;
 }

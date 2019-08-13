@@ -19,12 +19,12 @@ public class LinhaPonto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "ID_LINHA", referencedColumnName = "ID")
     @NotNull
     private Linha linha;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "ID_PONTO", referencedColumnName = "ID")
     @NotNull
     private Ponto ponto;

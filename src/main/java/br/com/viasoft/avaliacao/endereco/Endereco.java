@@ -25,7 +25,7 @@ public class Endereco implements Serializable {
 
     @Column(name = "NUMERO")
     @NotNull
-    private String numero;
+    private Integer numero;
 
     @Column(name = "BAIRRO")
     @NotNull
