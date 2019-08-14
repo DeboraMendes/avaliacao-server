@@ -39,8 +39,8 @@ public class Empresa implements Serializable {
     @Column(name = "TELEFONE")
     private String telefone;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy="empresa")
-    @PrimaryKeyJoinColumn
+    @ManyToOne
+    @JoinColumn(name = "ID_ENDERECO")
     private Endereco endereco;
 
     @Column(name = "CAMINHO_FOTO")

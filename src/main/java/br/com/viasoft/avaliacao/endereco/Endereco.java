@@ -43,8 +43,4 @@ public class Endereco implements Serializable {
     @JoinColumn(name = "ID_CIDADE", referencedColumnName = "id")
     private Cidade cidade;
 
-    @OneToOne(optional = false)
-    @MapsId
-    @JoinColumn(name = "ID_EMPRESA", referencedColumnName = "id")
-    private Empresa empresa;
 }
