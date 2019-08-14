@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EnderecoServiceImp extends CrudServiceImpl<Endereco, Long> implements EnderecoService {
 
@@ -29,5 +31,10 @@ public class EnderecoServiceImp extends CrudServiceImpl<Endereco, Long> implemen
     @Override
     public long countByRuaLikeOrBairroLike(String rua, String bairro) {
         return enderecoRepository.countByRuaLikeOrBairroLike(rua, bairro);
+    }
+
+    @Override
+    public List<Endereco> complete(String value) {
+        return enderecoRepository.findByRuaContainingOrBairroContainingOrComplementoContaining(value, value, value);
     }
 }
