@@ -1,7 +1,6 @@
 package br.com.viasoft.avaliacao.endereco;
 
 import br.com.viasoft.avaliacao.cidade.Cidade;
-import br.com.viasoft.avaliacao.empresa.Empresa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

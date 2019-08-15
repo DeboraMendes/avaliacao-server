@@ -8,14 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class EstadoServiceImp extends CrudServiceImpl<Estado, Long> implements EstadoService {
 
-    //injeção de dependencias
     @Autowired
     private EstadoRepository estadoRepository;
 
     @Override
-    protected JpaRepository<Estado, Long> getRepository() {
-
-        return estadoRepository;
-    }
+    protected JpaRepository<Estado, Long> getRepository() { return estadoRepository; }
 
 }

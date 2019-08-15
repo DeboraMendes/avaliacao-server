@@ -2,7 +2,6 @@ package br.com.viasoft.avaliacao.estado;
 
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
-import br.com.viasoft.avaliacao.endereco.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

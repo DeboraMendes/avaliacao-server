@@ -8,13 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class CidadeServiceImp extends CrudServiceImpl<Cidade, Long> implements CidadeService {
 
-    //injeção de dependencias
     @Autowired
     private CidadeRepository cidadeRepository;
 
     @Override
-    protected JpaRepository<Cidade, Long> getRepository() {
-
-        return cidadeRepository;
-    }
+    protected JpaRepository<Cidade, Long> getRepository() { return cidadeRepository; }
 }

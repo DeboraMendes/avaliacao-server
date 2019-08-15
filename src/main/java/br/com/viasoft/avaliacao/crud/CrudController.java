@@ -15,9 +15,7 @@ public abstract class CrudController<T, ID extends Serializable> {
 
     @GetMapping
     @ResponseBody
-    public List<T> findAll() {
-        return getService().findAll();
-    }
+    public List<T> findAll() { return getService().findAll(); }
 
     @GetMapping("page")
     public Page<T> findAll(@RequestParam int page,
@@ -37,9 +35,7 @@ public abstract class CrudController<T, ID extends Serializable> {
     }
 
     @PostMapping
-    public T save(@RequestBody @Valid T entity) {
-        return getService().save(entity);
-    }
+    public T save(@RequestBody @Valid T entity) { return getService().save(entity); }
 
     @GetMapping("exists/{id}")
     public boolean exists(@PathVariable ID id) {

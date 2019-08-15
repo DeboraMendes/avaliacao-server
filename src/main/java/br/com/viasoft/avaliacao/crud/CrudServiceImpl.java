@@ -1,7 +1,5 @@
 package br.com.viasoft.avaliacao.crud;
 
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -18,9 +16,7 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<T> findAll() {
-		return getRepository().findAll();
-	}
+	public List<T> findAll() { return getRepository().findAll(); }
 
 	@Override
 	@Transactional(readOnly = true)
