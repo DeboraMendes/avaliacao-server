@@ -1,6 +1,6 @@
 package br.com.viasoft.avaliacao;
 
-import br.com.viasoft.avaliacao.linhaPonto.LinhaPonto;
+//import br.com.viasoft.avaliacao.linhaPonto.LinhaPonto;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.assertEquals;
@@ -25,13 +25,13 @@ public class AvaliacaoApplicationTests {
 	//refatorar o código
 	//testar novamente
 
-	private LinhaPonto linhaPonto;
+	// LinhaPonto linhaPonto;
 
 	//O método Before é executado antes de cada teste da classe. Utilizamos metodos @Befone para criar instancias por exemplo.
-	@Before
-	public void setUp() {
-		this.linhaPonto = new LinhaPonto();
-	}
+	//@Before
+	//public void setUp() {
+//		this.linhaPonto = new LinhaPonto();
+//	}
 
 	//o método com @After é executado após a execução do método de teste. Utilizamos métodos @After quando nossos testes consomem recursos que precisam ser finalizados. Exemplos podem ser testes que acessam banco de dados, abrem arquivos, abrem sockets, e etc.  Testes de Integração.
 	@After

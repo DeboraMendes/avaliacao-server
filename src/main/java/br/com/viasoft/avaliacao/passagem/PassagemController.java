@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.linhaPonto;
+package br.com.viasoft.avaliacao.passagem;
 
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/linhaponto")
-public class LinhaPontoController extends CrudController<LinhaPonto, Long> {
+@RequestMapping("/cidade")
+public class PassagemController extends CrudController<Passagem, Long> {
 
     @Autowired
-    private LinhaPontoService linhaPontoService;
+    private PassagemService passagemService;
 
     @Valid
     @Override
-    protected CrudService<LinhaPonto, Long> getService() {
-        return linhaPontoService;
+    protected CrudService<Passagem, Long> getService() {
+        return passagemService;
     }
 
 }

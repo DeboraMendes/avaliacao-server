@@ -2,11 +2,10 @@ package br.com.viasoft.avaliacao.historicoDoProcoDaPassagem;
 
 import br.com.viasoft.avaliacao.empresa.Empresa;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,6 +18,10 @@ import java.time.LocalDate;
 //@Data
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property  = "id",
+        scope     = Long.class)
 public class HistoricoDoProcoDaPassagem implements Serializable {
 
     @Id
@@ -32,7 +35,7 @@ public class HistoricoDoProcoDaPassagem implements Serializable {
     @Column(name = "DATA_DA_ALTERACAO")
     private LocalDate data;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "ID_EMPRESA")
     private Empresa empresa;
