@@ -12,8 +12,5 @@ public class TipoOnibusServiceImp extends CrudServiceImpl<TipoOnibus, Long> impl
     private TipoOnibusRepository tipoOnibusRepository;
 
     @Override
-    protected JpaRepository<TipoOnibus, Long> getRepository() {
-
-        return tipoOnibusRepository;
-    }
+    protected JpaRepository<TipoOnibus, Long> getRepository() { return tipoOnibusRepository; }
 }

@@ -40,6 +40,4 @@ public class Passagem implements Serializable {
     @JoinColumn(name = "ID_CIDADE_DESTINO", referencedColumnName = "id")
     @NotNull
     private Cidade destino;
-
-
 }

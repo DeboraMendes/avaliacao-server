@@ -12,8 +12,5 @@ public class TarifaServiceImp extends CrudServiceImpl<Tarifa, Long> implements T
     private TarifaRepository tarifaRepository;
 
     @Override
-    protected JpaRepository<Tarifa, Long> getRepository() {
-
-        return tarifaRepository;
-    }
+    protected JpaRepository<Tarifa, Long> getRepository() { return tarifaRepository; }
 }

@@ -12,8 +12,5 @@ public class PassagemServiceImp extends CrudServiceImpl<Passagem, Long> implemen
     private PassagemRepository passagemRepository;
 
     @Override
-    protected JpaRepository<Passagem, Long> getRepository() {
-
-        return passagemRepository;
-    }
+    protected JpaRepository<Passagem, Long> getRepository() { return passagemRepository; }
 }
