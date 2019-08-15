@@ -1,14 +1,14 @@
 package br.com.viasoft.avaliacao.passagem;
 
 import br.com.viasoft.avaliacao.cidade.Cidade;
+import br.com.viasoft.avaliacao.empresa.Empresa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.DayOfWeek;
-import java.time.LocalTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +22,14 @@ public class Passagem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_EMPRESA", referencedColumnName = "id")
+    @NotNull
+    private Empresa empresa;
+
     @Column(name = "DIA_DA_SEMANA")
     @NotNull
-    private List<DayOfWeek> diaDaSemana = new ArrayList<>();
+    private List<LocalDate> diaDaSemana = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CIDADE_ORIGEM", referencedColumnName = "id")
@@ -36,10 +41,5 @@ public class Passagem implements Serializable {
     @NotNull
     private Cidade destino;
 
-    @Column(name = "PARTIDA")
-    private LocalTime partida;
 
-    @Column(name = "VALOR")
-    @NotNull
-    private Double valor;
 }

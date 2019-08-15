@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.passagem;
+package br.com.viasoft.avaliacao.horariosETarifas.passagem;
 
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/passagem")
-public class PassagemController extends CrudController<Passagem, Long> {
+@RequestMapping("/cidade")
+public class HorariosETarifasController extends CrudController<HorariosETarifas, Long> {
 
     @Autowired
-    private PassagemService passagemService;
+    private HorariosETarifasService passagemService;
 
     @Valid
     @Override
-    protected CrudService<Passagem, Long> getService() {
+    protected CrudService<HorariosETarifas, Long> getService() {
         return passagemService;
     }
 
