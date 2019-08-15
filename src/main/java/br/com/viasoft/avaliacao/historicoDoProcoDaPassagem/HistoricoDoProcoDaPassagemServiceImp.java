@@ -15,5 +15,4 @@ public class HistoricoDoProcoDaPassagemServiceImp extends CrudServiceImpl<Histor
     protected JpaRepository<HistoricoDoProcoDaPassagem, Long> getRepository() {
         return historicoDoProcoDaPassagemRepository;
     }
-
 }

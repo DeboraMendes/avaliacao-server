@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/historicodoprocodapassagemservice")
+@RequestMapping("/historicodoprocodapassagem")
 public class HistoricoDoProcoDaPassagemController extends CrudController<HistoricoDoProcoDaPassagem, Long> {
 
     @Autowired
@@ -20,5 +20,4 @@ public class HistoricoDoProcoDaPassagemController extends CrudController<Histori
     protected CrudService<HistoricoDoProcoDaPassagem, Long> getService() {
         return historicoDoProcoDaPassagemService;
     }
-
 }

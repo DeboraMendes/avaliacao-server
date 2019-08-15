@@ -2,12 +2,15 @@ package br.com.viasoft.avaliacao.empresa;
 
 import br.com.viasoft.avaliacao.endereco.Endereco;
 import br.com.viasoft.avaliacao.historicoDoProcoDaPassagem.HistoricoDoProcoDaPassagem;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 //@Entity é uma anotação do JPA. É utilizada para fazer o mapeamento entre entre dados e objetos, ou seja, utilizada para informar que uma classe também é uma entidade.
@@ -17,7 +20,9 @@ import java.util.List;
 //@NoArgsConstructor é uma anotação do Lombok. Irá gerar um construtor sem parâmetros.
 @NoArgsConstructor
 //@Data é uma anotação do Lombok. É atalho para @ToString, @EqualsAndHashCode, @Getters,  @Setters e @RequiredArgsConstructor
-@Data
+//@Data
+@Getter
+@Setter
 //Serializable é uma Interface do Java. Serializar um objeto significa transformá-lo em um stream de bytes que pode ser gravado ou transmitido. Usa-se serialização quando se quer gravar objetos em arquivos ou transmiti-los pela rede por exemplo.
 public class Empresa implements Serializable {
 
@@ -27,13 +32,18 @@ public class Empresa implements Serializable {
 
     @Column(name = "NOME_FANTASIA")
     @NotNull
+    @Min(3)
+    @Max(800)
     private String nomeFantasia;
 
     @Column(name = "RAZAO_SOCIAL")
     @NotNull
+    @Min(3)
+    @Max(10)
     private String razaoSocial;
 
     @Column(name = "EMAIL")
+    @Email
     private String email;
 
     @Column(name = "TELEFONE")
@@ -46,6 +56,7 @@ public class Empresa implements Serializable {
     @Column(name = "CAMINHO_FOTO")
     private String caminhoFoto;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empresa")
-    private List<HistoricoDoProcoDaPassagem> historicoDoProcoDaPassagem;
+    @JsonBackReference
+    @OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)
+    private List<HistoricoDoProcoDaPassagem> historicoDoProcoDaPassagem = new ArrayList<>();
 }

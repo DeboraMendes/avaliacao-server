@@ -44,4 +44,9 @@ public class EmpresaController extends CrudController<Empresa, Long> {
         return empresaService.countByNomeFantasiaLike("%" + filter + "%");
     }
 
+    @GetMapping("complete")
+    public List<Empresa> complete(@RequestParam("query") String query) {
+        return empresaService.complete(query);
+    }
+
 }
