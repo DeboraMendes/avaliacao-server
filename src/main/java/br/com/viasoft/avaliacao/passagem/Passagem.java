@@ -2,6 +2,8 @@ package br.com.viasoft.avaliacao.passagem;
 
 import br.com.viasoft.avaliacao.cidade.Cidade;
 import br.com.viasoft.avaliacao.empresa.Empresa;
+import br.com.viasoft.avaliacao.horariosETarifas.passagem.HorariosETarifas;
+import br.com.viasoft.avaliacao.tarifa.Tarifa;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,6 +30,7 @@ public class Passagem implements Serializable {
     private Empresa empresa;
 
     @Column(name = "DIA_DA_SEMANA")
+    @ElementCollection(targetClass=LocalDate.class)
     @NotNull
     private List<LocalDate> diaDaSemana = new ArrayList<>();
 
@@ -40,4 +43,8 @@ public class Passagem implements Serializable {
     @JoinColumn(name = "ID_CIDADE_DESTINO", referencedColumnName = "id")
     @NotNull
     private Cidade destino;
+
+    @OneToMany(mappedBy = "passagem", cascade=CascadeType.ALL)
+    private List<Tarifa> tarifas = new ArrayList<Tarifa>();
+
 }

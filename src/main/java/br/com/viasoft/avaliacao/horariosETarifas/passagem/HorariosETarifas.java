@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name="horariosETarifas")
+@Table(name="horarios_tarifas")
 @NoArgsConstructor
 @Data
 public class HorariosETarifas implements Serializable {
@@ -18,14 +18,14 @@ public class HorariosETarifas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToMany
-    @JoinColumn(name = "ID_PASSAGEM", referencedColumnName = "id")
-    @NotNull
-    private Passagem passagem;
-
-    @ManyToMany
-    @JoinColumn(name = "ID_TARIFA", referencedColumnName = "id")
-    @NotNull
-    private Tarifa tarifa;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "ID_PASSAGEM", referencedColumnName = "id")
+//    @NotNull
+//    private Passagem passagem;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "ID_TARIFA", referencedColumnName = "id")
+//    @NotNull
+//    private Tarifa tarifa;
 }

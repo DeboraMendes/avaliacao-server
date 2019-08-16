@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/cidade")
+@RequestMapping("/horariosetarifas")
 public class HorariosETarifasController extends CrudController<HorariosETarifas, Long> {
 
     @Autowired
