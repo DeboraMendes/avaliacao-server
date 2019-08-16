@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TipoOnibusServiceImp extends CrudServiceImpl<TipoOnibus, Long> implements TipoOnibusService {
 
@@ -13,4 +15,7 @@ public class TipoOnibusServiceImp extends CrudServiceImpl<TipoOnibus, Long> impl
 
     @Override
     protected JpaRepository<TipoOnibus, Long> getRepository() { return tipoOnibusRepository; }
+
+    @Override
+    public List<TipoOnibus> complete(String value) { return tipoOnibusRepository.findByDescricaoContaining(value); }
 }
