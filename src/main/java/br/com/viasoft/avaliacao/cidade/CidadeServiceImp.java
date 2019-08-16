@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CidadeServiceImp extends CrudServiceImpl<Cidade, Long> implements CidadeService {
 
@@ -13,4 +15,7 @@ public class CidadeServiceImp extends CrudServiceImpl<Cidade, Long> implements C
 
     @Override
     protected JpaRepository<Cidade, Long> getRepository() { return cidadeRepository; }
+
+    @Override
+    public List<Cidade> complete(String value) { return cidadeRepository.findByNomeContaining(value); }
 }

@@ -1,6 +1,7 @@
 package br.com.viasoft.avaliacao.passagem;
 
 import br.com.viasoft.avaliacao.cidade.Cidade;
+import br.com.viasoft.avaliacao.diasDaSemana.DiaDaSemana;
 import br.com.viasoft.avaliacao.empresa.Empresa;
 import br.com.viasoft.avaliacao.tarifa.Tarifa;
 import lombok.Data;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +28,8 @@ public class Passagem implements Serializable {
     @NotNull
     private Empresa empresa;
 
-    @Column(name = "DIAS_DA_SEMANA")
-    @ElementCollection(targetClass=LocalDate.class)
-    @NotNull
-    private List<LocalDate> diasDaSemana = new ArrayList<>();
+    @OneToMany(mappedBy = "passagem", cascade=CascadeType.ALL)
+    List<DiaDaSemana> diasDaSemana = new ArrayList<DiaDaSemana>();
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CIDADE_ORIGEM", referencedColumnName = "id")

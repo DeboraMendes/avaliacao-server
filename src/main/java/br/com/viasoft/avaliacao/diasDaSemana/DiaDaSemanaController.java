@@ -1,4 +1,4 @@
-package br.com.viasoft.avaliacao.tipoOnibus;
+package br.com.viasoft.avaliacao.diasDaSemana;
 
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
@@ -12,21 +12,21 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tipoonibus")
-public class TipoOnibusController extends CrudController<TipoOnibus, Long> {
+@RequestMapping("/diadasemana")
+public class DiaDaSemanaController extends CrudController<DiaDaSemana, Long> {
 
     @Autowired
-    private TipoOnibusService tipoOnibusService;
+    private DiaDaSemanaService diaDaSemanaService;
 
     @Valid
     @Override
-    protected CrudService<TipoOnibus, Long> getService() {
-        return tipoOnibusService;
+    protected CrudService<DiaDaSemana, Long> getService() {
+        return diaDaSemanaService;
     }
 
     @GetMapping("complete")
-    public List<TipoOnibus> complete(@RequestParam("query") String query) {
-        return tipoOnibusService.complete(query);
+    public List<DiaDaSemana> complete(@RequestParam("query") String query) {
+        return diaDaSemanaService.complete(query);
     }
 
 }
