@@ -2,8 +2,12 @@ package br.com.viasoft.avaliacao.tarifa;
 
 import br.com.viasoft.avaliacao.passagem.Passagem;
 import br.com.viasoft.avaliacao.tipoOnibus.TipoOnibus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,7 +17,9 @@ import java.time.LocalTime;
 @Entity
 @Table(name="tarifa")
 @NoArgsConstructor
-@Data
+//@Data
+@Getter
+@Setter
 public class Tarifa implements Serializable {
 
     @Id
@@ -22,6 +28,7 @@ public class Tarifa implements Serializable {
 
     @Column(name = "PARTIDA")
     @NotNull
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime partida;
 
     @Column(name = "VALOR")
@@ -35,9 +42,6 @@ public class Tarifa implements Serializable {
 
     @Column(name = "TEMPO_VIAJEM")
     @NotNull
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime tempoViajem;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_PASSAGEM")
-    private Passagem passagem;
 }

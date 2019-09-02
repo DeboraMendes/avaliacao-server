@@ -4,8 +4,8 @@ import br.com.viasoft.avaliacao.cidade.Cidade;
 import br.com.viasoft.avaliacao.diasDaSemana.DiaDaSemana;
 import br.com.viasoft.avaliacao.empresa.Empresa;
 import br.com.viasoft.avaliacao.tarifa.Tarifa;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.*;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,8 +15,13 @@ import java.util.List;
 
 @Entity
 @Table(name="passagem")
+@AllArgsConstructor
 @NoArgsConstructor
-@Data
+//@Data
+@Getter
+@Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Passagem implements Serializable {
 
     @Id
@@ -28,7 +33,8 @@ public class Passagem implements Serializable {
     @NotNull
     private Empresa empresa;
 
-    @OneToMany(mappedBy = "passagem", cascade=CascadeType.ALL)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "passagem", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     List<DiaDaSemana> diasDaSemana = new ArrayList<DiaDaSemana>();
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -41,7 +47,8 @@ public class Passagem implements Serializable {
     @NotNull
     private Cidade destino;
 
-    @OneToMany(mappedBy = "passagem", cascade=CascadeType.ALL)
-    private List<Tarifa> tarifas = new ArrayList<Tarifa>();
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "ID_TARIFA")
+    private Tarifa tarifa;
 
 }

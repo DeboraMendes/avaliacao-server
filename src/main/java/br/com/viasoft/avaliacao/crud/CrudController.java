@@ -35,7 +35,10 @@ public abstract class CrudController<T, ID extends Serializable> {
     }
 
     @PostMapping
-    public T save(@RequestBody @Valid T entity) { return getService().save(entity); }
+    public T save(@RequestBody @Valid T entity) {
+
+        return getService().save(entity);
+    }
 
     @GetMapping("exists/{id}")
     public boolean exists(@PathVariable ID id) {
