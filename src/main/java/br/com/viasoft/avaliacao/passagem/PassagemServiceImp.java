@@ -20,7 +20,7 @@ public class PassagemServiceImp extends CrudServiceImpl<Passagem, Long> implemen
     protected JpaRepository<Passagem, Long> getRepository() { return passagemRepository; }
 
     @Override
-    public  List<Passagem> searchPassagem(@NotNull DiaDaSemana diaDaSemana, @NotNull Cidade origem, @NotNull Cidade destino) {
-        return passagemRepository.findByDiasDaSemanaAndOrigemAndDestino(diaDaSemana, origem, destino);
+    public  List<Passagem> searchPassagem(@NotNull String diaDaSemana, @NotNull Cidade origem, @NotNull Cidade destino) {
+        return passagemRepository.findByDiasDaSemanaDescricaoAndOrigemAndDestino(diaDaSemana, origem, destino);
     }
 }

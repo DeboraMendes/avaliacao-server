@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface PassagemRepository extends JpaRepository<Passagem, Long> {
 
-    List<Passagem> findByDiasDaSemanaAndOrigemAndDestino(@NotNull DiaDaSemana diaDaSemana, @NotNull Cidade origem, @NotNull Cidade destino);
+    List<Passagem> findByDiasDaSemanaDescricaoAndOrigemAndDestino(@NotNull String diaDaSemana, @NotNull Cidade origem, @NotNull Cidade destino);
 
 }
