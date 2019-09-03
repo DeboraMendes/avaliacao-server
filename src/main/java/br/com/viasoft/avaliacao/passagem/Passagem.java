@@ -34,7 +34,7 @@ public class Passagem implements Serializable {
     private Empresa empresa;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "passagem", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "passagem", fetch = FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval = true)
     List<DiaDaSemana> diasDaSemana = new ArrayList<DiaDaSemana>();
 
     @OneToOne(fetch = FetchType.EAGER)
