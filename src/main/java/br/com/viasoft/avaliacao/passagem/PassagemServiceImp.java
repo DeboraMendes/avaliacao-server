@@ -1,8 +1,6 @@
 package br.com.viasoft.avaliacao.passagem;
 
-import br.com.viasoft.avaliacao.cidade.Cidade;
 import br.com.viasoft.avaliacao.crud.CrudServiceImpl;
-import br.com.viasoft.avaliacao.diasDaSemana.DiaDaSemana;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
