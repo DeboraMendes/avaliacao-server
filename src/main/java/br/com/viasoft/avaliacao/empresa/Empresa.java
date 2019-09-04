@@ -28,7 +28,7 @@ public class Empresa implements Serializable {
     private String email;
 
     @Column(name = "TELEFONE")
-    @Pattern(regexp="(^$|[0-9]{11})", message = "TELEFONE da EMPRESA inválido.")
+    @Pattern(regexp="(^$|[0-9]{10,11})", message = "TELEFONE da EMPRESA inválido.")
     private String telefone;
 
     @OneToOne
