@@ -14,9 +14,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -40,8 +38,8 @@ public class Tarifa implements Serializable {
 
     @Column(name = "VALOR")
     @NotNull(message = "VALOR da TARIFA é obrigatório.")
-    @Min(value = 1, message = "VALOR da TARIFA deve ser no mínimo 1 real.")
-    @Max(value = 1000, message = "VALOR da TARIFA deve ser no máximo 1000 reais.")
+    @DecimalMin(value = "0.01", message = "VALOR da TARIFA deve ser no mínimo 0.01 centavo.")
+    @DecimalMax(value = "50000", message = "VALOR da TARIFA deve ser no máximo 50000 reais.")
     private Double valor;
 
     @ManyToOne

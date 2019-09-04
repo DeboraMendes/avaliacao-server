@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -20,6 +21,7 @@ public class Cidade implements Serializable {
 
     @Column(name = "NOME")
     @NotNull
+    @Size(min=3, max = 800, message = "NOME da CIDADE deve possuir no mínimo 3 caracteres e no máximo 800 caracteres.")
     private String nome;
 
     @ManyToOne
