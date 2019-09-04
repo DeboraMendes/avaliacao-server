@@ -3,6 +3,10 @@ package br.com.viasoft.avaliacao.tarifa;
 import br.com.viasoft.avaliacao.passagem.Passagem;
 import br.com.viasoft.avaliacao.tipoOnibus.TipoOnibus;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,8 +14,11 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Entity
@@ -32,7 +39,9 @@ public class Tarifa implements Serializable {
     private LocalTime partida;
 
     @Column(name = "VALOR")
-    @NotNull
+    @NotNull(message = "VALOR da TARIFA é obrigatório.")
+    @Min(value = 1, message = "VALOR da TARIFA deve ser no mínimo 1 real.")
+    @Max(value = 1000, message = "VALOR da TARIFA deve ser no máximo 1000 reais.")
     private Double valor;
 
     @ManyToOne
@@ -42,6 +51,5 @@ public class Tarifa implements Serializable {
 
     @Column(name = "TEMPO_VIAJEM")
     @NotNull
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime tempoViajem;
+    private String tempoViajem;
 }

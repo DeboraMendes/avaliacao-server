@@ -20,13 +20,15 @@ public class Empresa implements Serializable {
 
     @Column(name = "NOME")
     @NotNull
+    @Size(min=3, max = 800, message = "NOME da EMPRESA deve possuir no mínimo 3 caracteres e no máximo 800 caracteres.")
     private String nome;
 
     @Column(name = "EMAIL")
-    @Email
+    @Email(message = "EMAIL da EMPRESA é inválido.")
     private String email;
 
     @Column(name = "TELEFONE")
+    @Pattern(regexp="(^$|[0-9]{11})", message = "TELEFONE da EMPRESA inválido.")
     private String telefone;
 
     @OneToOne

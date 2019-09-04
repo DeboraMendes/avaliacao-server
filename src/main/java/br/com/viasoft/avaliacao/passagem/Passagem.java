@@ -50,5 +50,4 @@ public class Passagem implements Serializable {
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "ID_TARIFA")
     private Tarifa tarifa;
-
 }
