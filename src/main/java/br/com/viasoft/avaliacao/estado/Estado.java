@@ -22,8 +22,8 @@ public class Estado implements Serializable {
 
     @Column(name = "CODIGO_IBGE")
     @NotNull
-    @Min(1)
-    @Max(1000)
+    @Min(value = 1, message = "CÓDIGO DO IBGE do ESTADO deve ser no mínimo 1.")
+    @Max(value = 9999, message = "CÓDIGO DO IBGE do ESTADO deve ser no máximo 9999.")
     private Integer codigoIbge;
 
     @Column(name = "NOME")
