@@ -13,4 +13,28 @@ public class TarifaServiceImp extends CrudServiceImpl<Tarifa, Long> implements T
 
     @Override
     protected JpaRepository<Tarifa, Long> getRepository() { return tarifaRepository; }
+
+    @Override
+    public Tarifa save(Tarifa entity) throws Exception {
+        if (entity.getValor() <= 0){
+            throw new ValorMenorQueZeroException("O valor não pode ser menor que zero!");
+        }
+        return super.save(entity);
+    }
+
+    @Override
+    public Integer updateValorTarifaPassagem(Long id, Double valor) throws ValorMenorQueZeroException {
+
+        if (valor <= 0){ throw new ValorMenorQueZeroException("O valor não pode ser menor que zero!"); }
+
+        Integer update = tarifaRepository.updateValorTarifaPassagem(id, valor);
+
+
+        //chamar método
+
+
+        return update;
+    }
+
+
 }

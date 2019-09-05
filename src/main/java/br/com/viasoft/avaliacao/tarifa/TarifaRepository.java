@@ -13,5 +13,5 @@ public interface TarifaRepository extends JpaRepository<Tarifa, Long> {
     @Query("update Tarifa t " +
             "set t.valor = :valor " +
             "where t.id = :id ")
-    void updateValorTarifaPassagem(@Param("id") Long id, @Param("valor") Double valor);
+    Integer updateValorTarifaPassagem(@Param("id") Long id, @Param("valor") Double valor);
 }

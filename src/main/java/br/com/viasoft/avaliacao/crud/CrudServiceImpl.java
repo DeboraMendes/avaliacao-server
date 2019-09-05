@@ -80,7 +80,7 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
 
 	@Override
 	@Transactional
-	public T save(T entity) {
+	public T save(T entity) throws Exception {
 		return getRepository().save(entity);
 	}
 

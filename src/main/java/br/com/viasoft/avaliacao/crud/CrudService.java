@@ -15,7 +15,7 @@ public interface CrudService<T, ID extends Serializable> {
 
 	Page<T> findAll(Pageable pageable);
 
-	T save(T entity);
+	T save(T entity) throws Exception;
 
 	T saveAndFlush(T entity);
 

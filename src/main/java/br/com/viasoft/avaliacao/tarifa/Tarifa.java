@@ -50,4 +50,5 @@ public class Tarifa implements Serializable {
     @Column(name = "TEMPO_VIAJEM")
     @NotNull
     private String tempoViajem;
+
 }

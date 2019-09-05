@@ -3,6 +3,7 @@ package br.com.viasoft.avaliacao.passagem;
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
 import br.com.viasoft.avaliacao.tarifa.TarifaRepository;
+import br.com.viasoft.avaliacao.tarifa.TarifaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class PassagemController extends CrudController<Passagem, Long> {
     private PassagemService passagemService;
 
     @Autowired
-    private TarifaRepository tarifaRepository;
+    private TarifaService tarifaService;
 
     @Valid
     @Override
@@ -34,6 +35,6 @@ public class PassagemController extends CrudController<Passagem, Long> {
 
     @PutMapping("{id}")
     void updateValorTarifaPassagem(@PathVariable Long id, @RequestParam("valor")  Double valor) {
-        tarifaRepository.updateValorTarifaPassagem(id,valor);
+        tarifaService.updateValorTarifaPassagem(id,valor);
     }
 }

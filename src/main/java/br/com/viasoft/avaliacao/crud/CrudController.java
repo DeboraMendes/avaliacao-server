@@ -35,7 +35,7 @@ public abstract class CrudController<T, ID extends Serializable> {
     }
 
     @PostMapping
-    public T save(@RequestBody @Valid T entity) {
+    public T save(@RequestBody @Valid T entity) throws Exception {
         return getService().save(entity);
     }
 
