@@ -1,14 +1,10 @@
 package br.com.viasoft.avaliacao.passagem;
 
-import br.com.viasoft.avaliacao.cidade.Cidade;
 import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
-import br.com.viasoft.avaliacao.diasDaSemana.DiaDaSemana;
+import br.com.viasoft.avaliacao.tarifa.TarifaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,6 +15,9 @@ public class PassagemController extends CrudController<Passagem, Long> {
 
     @Autowired
     private PassagemService passagemService;
+
+    @Autowired
+    private TarifaRepository tarifaRepository;
 
     @Valid
     @Override
@@ -33,4 +32,8 @@ public class PassagemController extends CrudController<Passagem, Long> {
         return passagemService.searchPassagem(diaDaSemana, origem, destino);
     }
 
+    @PutMapping("{id}")
+    void updateValorTarifaPassagem(@PathVariable Long id, @RequestParam("valor")  Double valor) {
+        tarifaRepository.updateValorTarifaPassagem(id,valor);
+    }
 }

@@ -20,5 +20,4 @@ public class TarifaController extends CrudController<Tarifa, Long> {
     protected CrudService<Tarifa, Long> getService() {
         return tarifaService;
     }
-
 }
