@@ -29,12 +29,9 @@ public class TarifaServiceImp extends CrudServiceImpl<Tarifa, Long> implements T
 
         Integer update = tarifaRepository.updateValorTarifaPassagem(id, valor);
 
-
-        //chamar método
-
+        LogUpdateValorTarifaPassagem.save("O valor da Tarifa: " + id + " foi alterado para: " + valor);
 
         return update;
     }
-
 
 }

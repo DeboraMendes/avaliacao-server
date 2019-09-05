@@ -4,6 +4,7 @@ import br.com.viasoft.avaliacao.crud.CrudController;
 import br.com.viasoft.avaliacao.crud.CrudService;
 import br.com.viasoft.avaliacao.tarifa.TarifaRepository;
 import br.com.viasoft.avaliacao.tarifa.TarifaService;
+import br.com.viasoft.avaliacao.tarifa.ValorMenorQueZeroException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class PassagemController extends CrudController<Passagem, Long> {
     }
 
     @PutMapping("{id}")
-    void updateValorTarifaPassagem(@PathVariable Long id, @RequestParam("valor")  Double valor) {
+    void updateValorTarifaPassagem(@PathVariable Long id, @RequestParam("valor")  Double valor) throws ValorMenorQueZeroException {
         tarifaService.updateValorTarifaPassagem(id,valor);
     }
 }
