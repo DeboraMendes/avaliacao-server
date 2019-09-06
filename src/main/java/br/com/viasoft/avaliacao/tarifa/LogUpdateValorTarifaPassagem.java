@@ -5,20 +5,14 @@ import java.util.Date;
 
 public class LogUpdateValorTarifaPassagem {
 
-    public static void save(String content) {
+    public void save(String content) {
 
         Date dataHoraAtual = new Date();
-
-        File dir = new File("../resources/static/logs/");
-
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
 
         try {
 
             // Cria arquivo
-            File file = new File(String.valueOf(dataHoraAtual)+"txt");
+            File file = new File(String.valueOf(dataHoraAtual));
 
             // Se o arquivo nao existir, ele gera
             if (!file.exists()) {
@@ -34,7 +28,7 @@ public class LogUpdateValorTarifaPassagem {
             bw.close();
 
             // Le o arquivo
-            FileReader ler = new FileReader(String.valueOf(dataHoraAtual)+"txt");
+            FileReader ler = new FileReader(String.valueOf(dataHoraAtual));
             BufferedReader reader = new BufferedReader(ler);
             String linha;
             while( (linha = reader.readLine()) != null ){
@@ -42,7 +36,7 @@ public class LogUpdateValorTarifaPassagem {
             }
 
             // Imprime confirmacao
-            System.out.println("Arquivo: " + String.valueOf(dataHoraAtual)+"txt" + " salvo com sucesso! ");
+            System.out.println("O arquivo: " + String.valueOf(dataHoraAtual) + " foi salvo com sucesso! ");
 
         } catch (IOException e) {
             e.printStackTrace();

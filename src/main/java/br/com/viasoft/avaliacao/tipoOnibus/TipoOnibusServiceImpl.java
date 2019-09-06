@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TipoOnibusServiceImp extends CrudServiceImpl<TipoOnibus, Long> implements TipoOnibusService {
+public class TipoOnibusServiceImpl extends CrudServiceImpl<TipoOnibus, Long> implements TipoOnibusService {
 
     @Autowired
     private TipoOnibusRepository tipoOnibusRepository;

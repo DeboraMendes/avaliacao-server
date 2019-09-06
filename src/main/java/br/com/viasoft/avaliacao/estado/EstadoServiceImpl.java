@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EstadoServiceImp extends CrudServiceImpl<Estado, Long> implements EstadoService {
+public class EstadoServiceImpl extends CrudServiceImpl<Estado, Long> implements EstadoService {
 
     @Autowired
     private EstadoRepository estadoRepository;

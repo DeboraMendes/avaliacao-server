@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EnderecoServiceImp extends CrudServiceImpl<Endereco, Long> implements EnderecoService {
+public class EnderecoServiceImpl extends CrudServiceImpl<Endereco, Long> implements EnderecoService {
 
     @Autowired
     private EnderecoRepository enderecoRepository;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DiaDaSemanaServiceImp extends CrudServiceImpl<DiaDaSemana, Long> implements DiaDaSemanaService {
+public class DiaDaSemanaServiceImpl extends CrudServiceImpl<DiaDaSemana, Long> implements DiaDaSemanaService {
 
     @Autowired
     private DiaDaSemanaRepository diaDaSemanaRepository;

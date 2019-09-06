@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmpresaServiceImp extends CrudServiceImpl<Empresa, Long> implements EmpresaService {
+public class EmpresaServiceImpl extends CrudServiceImpl<Empresa, Long> implements EmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;

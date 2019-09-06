@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CidadeServiceImp extends CrudServiceImpl<Cidade, Long> implements CidadeService {
+public class CidadeServiceImpl extends CrudServiceImpl<Cidade, Long> implements CidadeService {
 
     @Autowired
     private CidadeRepository cidadeRepository;

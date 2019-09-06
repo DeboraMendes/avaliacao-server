@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Service
-public class PassagemServiceImp extends CrudServiceImpl<Passagem, Long> implements PassagemService {
+public class PassagemServiceImpl extends CrudServiceImpl<Passagem, Long> implements PassagemService {
 
     @Autowired
     private PassagemRepository passagemRepository;
