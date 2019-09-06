@@ -41,4 +41,11 @@ public class TarifaServiceImpl extends CrudServiceImpl<Tarifa, Long> implements 
         return update;
     }
 
+    @Override
+    public void delete(Tarifa entity) {
+        //super.delete(entity);
+        //Tarifa t = new Tarifa();
+        //t.setId(10L);
+        tarifaRepository.delete(entity);
+    }
 }

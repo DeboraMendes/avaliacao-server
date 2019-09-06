@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -27,15 +28,24 @@ public class AvaliacaoApplicationTests {
 	@InjectMocks
 	private TarifaServiceImpl tarifaServiceImpl;
 
+	@Captor
+	private ArgumentCaptor<Tarifa> tarifaCaptor;
+
 	private TipoOnibus tipoOnibus1;
+	private TipoOnibus tipoOnibus2;
 
 	private Tarifa tarifa1;
+	private Tarifa tarifa2;
 
 	@Before
 	public void criarTipoOnibus() {
 		this.tipoOnibus1 = new TipoOnibus();
 		this.tipoOnibus1.setId(1L);
 		this.tipoOnibus1.setDescricao("Metropolitano");
+
+		this.tipoOnibus2 = new TipoOnibus();
+		this.tipoOnibus2.setId(2L);
+		this.tipoOnibus2.setDescricao("Convencional");
 	}
 
 	@Before
@@ -46,6 +56,13 @@ public class AvaliacaoApplicationTests {
 		this.tarifa1.setValor(1D);
 		this.tarifa1.setTipoOnibus(tipoOnibus1);
 		this.tarifa1.setTempoViajem("11:00");
+
+		this.tarifa2 = new Tarifa();
+		this.tarifa2.setId(2L);
+		this.tarifa2.setPartida(LocalTime.now());
+		this.tarifa2.setValor(2D);
+		this.tarifa2.setTipoOnibus(tipoOnibus2);
+		this.tarifa2.setTempoViajem("12:00");
 	}
 
 	//um que lance uma exceção
@@ -66,16 +83,10 @@ public class AvaliacaoApplicationTests {
 
 	//captura argumentos
 	@Test
-	public void teste3() throws ValorMenorQueZeroException {
-		Double novoValor = tarifa1.getValor()+1;
-
-		tarifaServiceImpl.updateValorTarifaPassagem(tarifa1.getId(), novoValor);
-
-		ArgumentCaptor<Tarifa> tarifaArgumentoCaptor = ArgumentCaptor.forClass(Tarifa.class);
-		verify(tarifaServiceImpl).updateValorTarifaPassagem(tarifaArgumentoCaptor.capture().getId(), tarifaArgumentoCaptor.capture().getValor());
-
-		Assert.assertEquals(novoValor, tarifaArgumentoCaptor.capture().getValor());
-
+	public void deveVerificarSeDeletouTarifaCorreta() {
+		tarifaServiceImpl.delete(tarifa2);
+		verify(tarifaRepository).delete(tarifaCaptor.capture());
+		Assert.assertEquals(tarifa2.getId(), tarifaCaptor.getValue().getId());
 	}
 
 }
