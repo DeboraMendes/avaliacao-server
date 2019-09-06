@@ -30,6 +30,8 @@ public class TarifaServiceImpl extends CrudServiceImpl<Tarifa, Long> implements 
     @Override
     public Integer updateValorTarifaPassagem(Long id, Double valor) throws ValorMenorQueZeroException {
 
+        logUpdateValorTarifaPassagem =  new LogUpdateValorTarifaPassagem();
+
         if (valor <= 0) {
             throw new ValorMenorQueZeroException("O valor não pode ser menor que zero!");
         }
