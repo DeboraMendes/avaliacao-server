@@ -125,26 +125,6 @@
 	<build>
 		<plugins>
 			<!--
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<version>5.2.4</version>
-				<configuration>
-					<driver>com.mysql.cj.jdbc.Driver</driver>
-					<url>jdbc:mysql://127.0.0.1:3306/avaliacao</url>
-					<user>root</user>
-					<password>root</password>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>8.0.17</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			-->
-			<!--
 			plugin e a regra de como o build será realizado ao empacotar a aplicação
 			é necessário para gerar um Fatjar que é a aplicação completa empacotada em um único arquivo .jar
 			assim já sobe toda nossa aplicação diretamente da linha de comando
