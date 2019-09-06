@@ -11,7 +11,7 @@ public class TarifaServiceImpl extends CrudServiceImpl<Tarifa, Long> implements 
     @Autowired
     private TarifaRepository tarifaRepository;
 
-    @Autowired
+    @Autowired(required = false)
     private LogUpdateValorTarifaPassagem logUpdateValorTarifaPassagem;
 
     @Override
@@ -43,9 +43,9 @@ public class TarifaServiceImpl extends CrudServiceImpl<Tarifa, Long> implements 
 
     @Override
     public void delete(Tarifa entity) {
-        //super.delete(entity);
-        //Tarifa t = new Tarifa();
-        //t.setId(10L);
+//        Tarifa outraTarifa = new Tarifa();
+//        outraTarifa.setId(10L);
+//        tarifaRepository.delete(outraTarifa); //aqui acontecerá a interceptação do teste
         tarifaRepository.delete(entity);
     }
 }

@@ -85,8 +85,8 @@ public class AvaliacaoApplicationTests {
 	@Test
 	public void deveVerificarSeDeletouTarifaCorreta() {
 		tarifaServiceImpl.delete(tarifa2);
-		verify(tarifaRepository).delete(tarifaCaptor.capture());
-		Assert.assertEquals(tarifa2.getId(), tarifaCaptor.getValue().getId());
+		verify(tarifaRepository).delete(tarifaCaptor.capture()); //no momento que o tarifaRepository for executar o delete o objeto passado por parametro para ele será interceptado
+		Assert.assertEquals(tarifa2.getId(), tarifaCaptor.getValue().getId()); //comparo se o id do objeto que mandei ser excluido é o mesmo id do objeto que efetivamente foi excluido
 	}
 
 }
