@@ -1,30 +1,21 @@
 package br.com.viasoft.avaliacao.tarifa;
 
-import br.com.viasoft.avaliacao.passagem.Passagem;
 import br.com.viasoft.avaliacao.tipoOnibus.TipoOnibus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Entity
 @Table(name="tarifa")
 @NoArgsConstructor
-//@Data
-@Getter
-@Setter
+@Data
 public class Tarifa implements Serializable {
 
     @Id

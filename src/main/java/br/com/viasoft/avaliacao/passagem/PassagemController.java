@@ -28,8 +28,8 @@ public class PassagemController extends CrudController<Passagem, Long> {
 
     @GetMapping("searchPassagem")
     public List<Passagem> searchPassagem(@RequestParam("diaDaSemana") String diaDaSemana,
-                                   @RequestParam("origem") Long origem,
-                                   @RequestParam("destino")Long destino) {
+                                         @RequestParam("origem") Long origem,
+                                         @RequestParam("destino")Long destino) {
         return passagemService.searchPassagem(diaDaSemana, origem, destino);
     }
 
