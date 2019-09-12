@@ -48,7 +48,6 @@ public class Tarifa implements Serializable {
     private TipoOnibus tipoOnibus;
 
     @Column(name = "TEMPO_VIAJEM")
-    @NotNull
     private String tempoViajem;
 
 }

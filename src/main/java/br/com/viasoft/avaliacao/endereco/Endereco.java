@@ -35,11 +35,11 @@ public class Endereco implements Serializable {
     private String cep;
 
     @Column(name = "COMPLEMENTO")
-    @NotNull
     private String complemento;
 
     @ManyToOne
     @JoinColumn(name = "ID_CIDADE", referencedColumnName = "id")
+    @NotNull
     private Cidade cidade;
 
 }
