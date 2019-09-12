@@ -1,8 +1,11 @@
 package br.com.viasoft.avaliacao.tarifa;
 
+import org.springframework.stereotype.Component;
+
 import java.io.*;
 import java.util.Date;
 
+@Component
 public class LogUpdateValorTarifaPassagem {
 
     public void save(String content) {

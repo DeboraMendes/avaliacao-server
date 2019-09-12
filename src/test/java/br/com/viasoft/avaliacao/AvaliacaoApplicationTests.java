@@ -78,7 +78,7 @@ public class AvaliacaoApplicationTests {
 	public void deveVerificarSeSaveDoLogUpdateValorTarifaPassagemFoiInvocado() throws ValorMenorQueZeroException {
 		Double novoValor =  tarifa1.getValor()+1;
 		tarifaServiceImpl.updateValorTarifaPassagem(tarifa1.getId(), novoValor);
-		verify(logUpdateValorTarifaPassagem).save("O valor da Tarifa: " + tarifa1.getId() + " foi alterado para: " + novoValor.toString());
+		verify(logUpdateValorTarifaPassagem).save("O valor da Tarifa: " + tarifa1.getId() + " foi alterado para: " + novoValor);
 	}
 
 	//captura argumentos
