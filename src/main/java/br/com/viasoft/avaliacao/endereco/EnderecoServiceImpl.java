@@ -17,5 +17,7 @@ public class EnderecoServiceImpl extends CrudServiceImpl<Endereco, Long> impleme
     protected JpaRepository<Endereco, Long> getRepository() { return enderecoRepository; }
 
     @Override
-    public List<Endereco> complete(String value) { return enderecoRepository.findByRuaContainingOrBairroContainingOrComplementoContaining(value, value, value); }
+    public List<Endereco> complete(String value) {
+        return enderecoRepository.findByRuaContainingOrBairroContainingOrComplementoContaining(value, value, value);
+    }
 }

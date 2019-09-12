@@ -15,13 +15,8 @@ import java.util.List;
 
 @Entity
 @Table(name="passagem")
-@AllArgsConstructor
 @NoArgsConstructor
-//@Data
-@Getter
-@Setter
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Data
 public class Passagem implements Serializable {
 
     @Id
