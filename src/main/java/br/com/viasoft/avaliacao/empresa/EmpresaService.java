@@ -1,6 +1,5 @@
 package br.com.viasoft.avaliacao.empresa;
 
-import br.com.viasoft.avaliacao.cidade.Cidade;
 import br.com.viasoft.avaliacao.crud.CrudService;
 
 import java.util.List;

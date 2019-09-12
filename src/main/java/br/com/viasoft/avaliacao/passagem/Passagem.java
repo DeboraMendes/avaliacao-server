@@ -33,6 +33,8 @@ public class Passagem implements Serializable {
     @NotNull
     private Empresa empresa;
 
+    //permitir que Jackson lide melhor com a relação (no caso de relacionamentos bidirecionais):
+    // @JsonManagedReference (origem) e @JsonBackReference (vinculo)
     @JsonManagedReference
     @OneToMany(mappedBy = "passagem", fetch = FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval = true)
     private List<DiaDaSemana> diasDaSemana = new ArrayList<>();

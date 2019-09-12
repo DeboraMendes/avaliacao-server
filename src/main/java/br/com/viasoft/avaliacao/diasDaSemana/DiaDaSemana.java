@@ -2,9 +2,8 @@ package br.com.viasoft.avaliacao.diasDaSemana;
 
 import br.com.viasoft.avaliacao.passagem.Passagem;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,13 +11,8 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="dia_da_semana")
-@AllArgsConstructor
 @NoArgsConstructor
-//@Data
-@Getter
-@Setter
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Data
 public class DiaDaSemana implements Serializable {
 
     @Id
@@ -29,6 +23,8 @@ public class DiaDaSemana implements Serializable {
     @NotNull
     private String descricao;
 
+    //permitir que Jackson lide melhor com a relação (no caso de relacionamentos bidirecionais):
+    // @JsonManagedReference (origem) e @JsonBackReference (vinculo)
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "ID_PASSAGEM")
